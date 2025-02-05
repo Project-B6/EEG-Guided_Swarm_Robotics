@@ -1,2 +1,2 @@
-# Swarm-Based_Modular_Bridge_Construction
-This repository contains the code, simulation models, algorithms, and documentation for a project focused on leveraging swarm robotics for developing a Convex Optimization-Driven Framework for Optimized Multi-Robot Task Allocation and Coordination in Modular Bridge Construction for Remote and Disaster-Prone Areas.
+# EEG-Guided Swarm Robotics
+The EEG-Guided Swarm Robotics project focuses on controlling and coordinating multiple drones using brain signals. By integrating neural signal processing with machine learning, it enables real-time, hands-free navigation of robotic swarms. EEG-based inputs allow adaptive decision-making, optimizing task execution in dynamic environments.
