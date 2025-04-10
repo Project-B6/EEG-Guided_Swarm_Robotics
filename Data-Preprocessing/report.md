@@ -198,6 +198,15 @@ Why: Emotional states like anxiety or calmness affect how "chaotic" the EEG beco
   - Gaussian assumption avoids numerical integration
 
 ## 3. **Fractal Dimensions**
+
+What you're doing: Checking how rough or complex the EEG signal is by zooming in at different scales.
+
+Higuchi: Like stretching a squiggly line to see how detailed it is.
+
+Katz: Measures how far the signal jumps and how curvy it is.
+
+Why: Emotions often create complex signal patterns; this helps detect them.
+
 ### Higuchi Fractal Dimension  
 - Calculates curve length at different scales:  
   $$
@@ -224,6 +233,13 @@ Why: Emotional states like anxiety or calmness affect how "chaotic" the EEG beco
   ```
 
 ## 5. **Spatial Feature Mapping**
+
+What you're doing: Imagine your EEG electrodes placed on a virtual 2D grid that represents the scalp.
+
+How: Each spot on this 8x9 grid holds a feature (like PSD or DE) from a corresponding electrode.
+
+Why: Emotions affect specific regions of the brain. This layout helps the model "see" those locations.
+
 **Matrix Operations**:  
 - EEG channels mapped to 8x9 grid:  
   $$
@@ -234,30 +250,6 @@ Why: Emotional states like anxiety or calmness affect how "chaotic" the EEG beco
   \end{bmatrix}
   $$
   - Each position contains spectral/entropy features
-
-## 6. **Deep Learning Integration**
-**ConvLSTM Architecture**:  
-- Combines CNN spatial processing with LSTM temporal modeling:  
-  $$
-  \mathbf{h}_t = \sigma(\mathbf{W}_h \ast [\mathbf{X}_t, \mathbf{h}_{t-1}] + \mathbf{b}_h)
-  $$
-  - **Key Components**:  
-  - 2D convolutions for spatial patterns  
-  - LSTM gates for temporal dynamics  
-  - Final dense layers for classification
-
-## Optimization Foundations
-1. **Filter Design**:  
-   Butterworth filter coefficients optimized via bilinear transform:  
-   $$
-   s = \frac{2}{T_s}\frac{z-1}{z+1}
-   $$
-
-2. **Model Training**:  
-   Adam optimizer minimizes cross-entropy loss:  
-   $$
-   \mathcal{L} = -\sum y_i\log(\hat{y}_i)
-   $$
 
 ## Key Mathematical Relationships
 | Feature Type         | Math Domain          | Key Operations                  |
