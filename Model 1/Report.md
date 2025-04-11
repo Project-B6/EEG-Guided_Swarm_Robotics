@@ -65,6 +65,19 @@ For EEG data shaped as (batch, timesteps, height, width, channels):
    ```
 
 ## 3. **Optimization Mathematics**
+
+Optimization is how the model learns over time. The Adam optimizer is a smart way to adjust the model’s parameters (like the weights of the filters) so it performs better.
+
+Here’s how it works:
+
+Gradient: The optimizer finds how much each parameter (weight) should change by calculating the gradient (slope) of the error (how wrong the model is).
+
+Bias Correction: The optimizer has built-in corrections to handle the initial stages of training (when the model starts with random weights).
+
+Update: After calculating how much the weights need to change, the optimizer updates the weights, trying to make the model more accurate.
+
+This process repeats many times, improving the model’s ability to predict emotions from EEG.
+
 **Adam Optimizer** with learning rate $\eta=0.001$:
 1. Compute gradients:
    $$ g_t = \nabla_\theta \mathcal{L}(\theta) $$
@@ -102,6 +115,12 @@ Chain rule for ConvLSTM gradient at time $t$:
 $$ \frac{\partial \mathcal{L}}{\partial W} = \sum_{k=1}^t \frac{\partial \mathcal{L}}{\partial H_t} \left( \prod_{j=k+1}^t \frac{\partial H_j}{\partial H_{j-1}} \right) \frac{\partial H_k}{\partial W} $$
 
 ## 6. **Regularization**
+To avoid overfitting (where the model gets too good at memorizing the training data and not generalizing to new data), we use regularization techniques like:
+
+Dropout: Randomly turns off some of the neurons in the network during training. This forces the model to learn more robust features, instead of just relying on certain neurons.
+
+L2 regularization: Adds a penalty to the loss for large weights. This helps the model avoid making too extreme changes in its weights and keeps things smoother.
+
 **Dropout (p=0.2)**:
 $$ h_{drop} = h \odot \text{mask}, \quad \text{mask}_i \sim \text{Bernoulli}(0.8) $$
 
