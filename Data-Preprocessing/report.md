@@ -16,7 +16,7 @@ This pipeline converts raw brain signals into structured spatial-spectral repres
 $$
 H(s) = \frac{1}{\sqrt{1 + \left(\frac{s}{j\omega_c}\right)^{2n}}}
 $$  
-- $$ n = 4 $$ (filter order)  
+- /( n = 4 $$ (filter order) )/  
 - $$ \omega_c $$ = cutoff frequency (radians/sample)  
 
 **Pole-Zero Placement**:  
